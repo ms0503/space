@@ -1,25 +1,25 @@
 #!/bin/bash
-TPM_DIR=$(cd $(dirname $0); pwd)
-if [ ! -f $TPM_DIR/func.sh ]; then
+SPACE_DIR=$(dirname $0)
+if [ ! -f $SPACE_DIR/func.sh ]; then
     printf "Error: func.sh file not found.\n"
     printf "Downloading...\n"
-    wget https://raw.githubusercontent.com/ms0503/tpm/master/func.sh -O $TPM_DIR/func.sh
+    wget https://raw.githubusercontent.com/ms0503/space/master/func.sh -O $SPACE_DIR/func.sh
 fi
-. $TPM_DIR/func.sh
+. $SPACE_DIR/func.sh
 
 VERSION="1.0.0"
 INSTDIR=""
 OS=""
 
-printf "tpm installer $VERSION\n"
-printf "Copyright (C) 2021 Sora Tonami\n"
+printf "Space installer $VERSION\n"
+printf "Copyright (C) 2022 Sora Tonami\n"
 printf "\n"
 
 if [ ${EUID:-$UID} != 0 ]; then
-    printf "Installing Mode: $USER only\n"
+    printf "Installing Mode: local user only\n"
     INSTDIR="/home/$USER/.local/tpm"
 else
-    printf "Installing Mode: All users\n"
+    printf "Installing Mode: system\n"
     INSTDIR="/usr/local/tpm"
 fi
 
@@ -56,7 +56,7 @@ fi
 
 printf "Phase 2: Installing Dependencies\n"
 printf "Node.js : "
-if [ -z "$(which node)" ]; then
+if [ -z "$(command -v node)" ]; then
     printf "not installed\n"
     printf "Installing...\n"
     case "$OS" in
@@ -98,28 +98,23 @@ fi
 printf "Installing build dependencies...\n"
 npm install
 
-printf "Phase 3: Installing tpm\n"
-printf "Building tpm...\n"
+printf "Phase 3: Installing Space\n"
+printf "Building Space...\n"
 npm run build
 printf "Copying files into %s ...\n" "$INSTDIR"
-if [ ${EUID:-$UID} != 0 ]; then
-    sudo cp -r ./bin $INSTDIR
-    sudo cp -r ./lang $INSTDIR
-else
-    cp -r ./bin $INSTDIR
-    cp -r ./lang $INSTDIR
-fi
+if [ ${EUID:-$UID} != 0 ] && sudo cp -r ./dist/* $INSTDIR || cp -r ./dist/* $INSTDIR
 export PATH="$PATH:$INSTDIR/bin"
-if [ -f $HOME/.bash_profile ]; then
-    printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" >> $HOME/.bash_profile
-elif [ -f $HOME/.profile ]; then
+if [ -f $HOME/.profile ]; then
     printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" >> $HOME/.profile
+elif [ -f $HOME/.bash_profile ]; then
+    printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" >> $HOME/.bash_profile
 elif [ -f $HOME/.bashrc ]; then
     printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" >> $HOME/.bashrc
 elif [ -f $HOME/.zshrc ]; then
     printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" >> $HOME/.zshrc
 else
-    printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" > $HOME/.bash_profile
+    printf 'export PATH="$PATH:%s/bin"' "$INSTDIR" > $HOME/.profile
 fi
 printf "Install Complete!\n"
 exit 0
+
