@@ -1,6 +1,6 @@
 /*
  *  Space - A package manager for Linux.
- *  Copyright (C) 2021 Sora Tonami
+ *  Copyright (C) 2022 Sora Tonami
  *
  *  This file is part of Space.
  *
