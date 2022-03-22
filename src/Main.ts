@@ -51,8 +51,10 @@ class Main {
         let opts: Options = Option.init();
         for(const opt of getopt.options) {
             switch(opt) {
+                case 'T':
+                    opts.test = true;
                 case 'y':
-                    opts.y = true;
+                    opts.yes = true;
                     break;
                 default:
                     console.error(Message.getMessage('err.invalid_option'));

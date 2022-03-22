@@ -37,7 +37,7 @@
         "dev": "ts-node src/Main.ts",
         "dev:watch": "ts-node-dev --respawn src/Main.ts",
         "start": "dist/bin/space",
-        "test": "dist/bin/space --debug",
+        "test": "dist/bin/space -T",
         "tsc": "tsc"
     },
     "type": "module",

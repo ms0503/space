@@ -21,7 +21,8 @@
 'use strict';
 
 type Options = {
-    y: boolean
+    test: boolean,
+    yes: boolean
 };
 
 class Option {

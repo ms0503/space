@@ -13,6 +13,7 @@ node ./space.js
 exit $?
 
 EOS
+chmod 755 dist/bin/space
 cp lang/* dist/lang
 exit 0
 
