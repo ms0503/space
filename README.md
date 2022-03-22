@@ -1,5 +1,6 @@
 # Space
 
+![CodeQL](https://github.com/ms0503/space/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Node.js CI](https://github.com/ms0503/space/actions/workflows/node.js.yml/badge.svg)
 
 ## Other Languages
