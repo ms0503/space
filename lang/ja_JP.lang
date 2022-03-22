@@ -1,0 +1,14 @@
+{
+    "msgs": {
+        "cmd.find": "パッケージを探します。",
+        "cmd.help": "このヘルプを表示します。",
+        "cmd.install": "パッケージをインストールします。",
+        "cmd.sync": "パッケージリストを同期します。",
+        "cmd.upgrade": "パッケージを更新します。",
+        "cmd.version": "tpmのバージョンを表示します。",
+        "err.invalid_option": "エラー: 正しくないオプションです。",
+        "opt.yes": "質問に全てyで答えます。",
+        "usage": "tpmの使用法:\n # tpm <sub-command> [options...]\n\n$$COMMANDS$$\n\n[[OPTIONS]]\n\nリポジトリ: https://github.com/ms0503/tpm/"
+    }
+}
+
