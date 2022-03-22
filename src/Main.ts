@@ -36,7 +36,7 @@ class Main {
             console.error('Error: Windows is not supported');
             return 2;
         }
-        Message.init(ENV_LANG.split('.')[0]);
+        Message.init(ENV_LANG.split('.')[0]!);
         const cmds: string[] = [
             `  find     ${Message.getMessage('cmd.find')}`,
             `  help     ${Message.getMessage('cmd.help')}`,
