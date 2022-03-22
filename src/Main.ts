@@ -20,14 +20,18 @@
 
 'use strict';
 
+import { Msg } from './Msg';
+import { Option } from './Option';
+import type { Options } from './Option';
+
 const Getopt: any = require('node-getopt');
 const os: any = require('os');
 
-export const ENV_LANG: string = process.env.LANG !== undefined && process.env.LANG !== 'C' ? process.env.LANG : 'en_US';
-export const VERSION: string = process.env.npm_package_version || require('../package.json').version;
+export const ENV_LANG: string = process.env['LANG'] !== undefined && process.env['LANG'] !== 'C' ? process.env['LANG'] : 'en_US';
+export const VERSION: string = process.env['npm_package_version'] || require('../package.json').version;
 
 export default class Main {
-    main(args: string[]): number {
+    main(): number {
         if(os.type().toString() === 'Windows') {
             console.error('Error: Windows is not supported');
             return 2;
@@ -44,7 +48,7 @@ export default class Main {
         const getopt: any = Getopt.create([
             ['y', 'yes', Msg.getMessage('opt.yes')]
         ]).bindHelp().setHelp(Msg.getMessage('usage').replace(/\$\$COMMANDS\$\$/g, cmds.join('\n'))).parseSystem();
-        let opts: {[key: string]: boolean};
+        let opts: Options = Option.init();
         for(const opt of getopt.options) {
             switch(opt) {
                 case 'y':
