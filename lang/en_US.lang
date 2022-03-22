@@ -8,7 +8,7 @@
         "cmd.version": "display tpm version.",
         "err.invalid_option": "Error: invalid option.",
         "opt.yes": "Answer all questions with `y'.",
-        "usage": "Usage:\n # tpm <sub-command> [options...]\n\n$$COMMANDS$$\n\n[[OPTIONS]]\n\nRepository: https://github.com/ms0503/tpm/"
+        "usage": "Usage:\n # space <sub-command> [options...]\n\n$$COMMANDS$$\n\n[[OPTIONS]]\n\nRepository: https://github.com/ms0503/space/"
     }
 }
 

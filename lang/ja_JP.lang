@@ -8,7 +8,7 @@
         "cmd.version": "tpmのバージョンを表示します。",
         "err.invalid_option": "エラー: 正しくないオプションです。",
         "opt.yes": "質問に全てyで答えます。",
-        "usage": "tpmの使用法:\n # tpm <sub-command> [options...]\n\n$$COMMANDS$$\n\n[[OPTIONS]]\n\nリポジトリ: https://github.com/ms0503/tpm/"
+        "usage": "使用法:\n # space <sub-command> [options...]\n\n$$COMMANDS$$\n\n[[OPTIONS]]\n\nリポジトリ: https://github.com/ms0503/space/"
     }
 }
 

@@ -20,7 +20,7 @@ SpaceはLinux向けのパッケージマネージャです。
 ```
 
 ## 使い方
-`# tpm <sub-command> [options...]`
+`# space <sub-command> [options...]`
 
 ## 機能
 

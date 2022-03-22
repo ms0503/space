@@ -20,7 +20,7 @@ Clone this repository, and run below.
 ```
 
 ## Usage
-`# tpm <sub-command> [options...]`
+`# space <sub-command> [options...]`
 
 ## Features
 
