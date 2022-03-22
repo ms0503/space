@@ -26,13 +26,14 @@ type langFile = {
     msgs: {[key: string]: string}
 };
 
-export default class Msg {
+class Message {
     static data: langFile;
 
     static getMessage(id: string): string {
         if(Msg.data.msgs[id] === undefined) {
             console.error('Error: No such localized message');
             process.exit(5);
+            return '';
         }
         return Msg.data.msgs[id];
     }
@@ -51,4 +52,6 @@ export default class Msg {
         }
     }
 }
+
+export { Message };
 

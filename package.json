@@ -39,5 +39,6 @@
         "test": "dist/bin/space --debug",
         "tsc": "tsc"
     },
+    "type": "module",
     "version": "0.1.0"
 }

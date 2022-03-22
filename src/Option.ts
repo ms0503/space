@@ -20,15 +20,17 @@
 
 'use strict';
 
-export type Options = {
+type Options = {
     y: boolean
 };
 
-export default class Option {
+class Option {
     static init(): Options {
         return {
             y: false
         };
     }
 }
+
+export { Option, Options };
 
