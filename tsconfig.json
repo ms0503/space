@@ -13,7 +13,6 @@
         "forceConsistentCasingInFileNames": true,
         "importHelpers": true,
         "incremental": true,
-        "inlineSourceMap": true,
         "inlineSources": true,
         "isolatedModules": true,
         "lib": [],
