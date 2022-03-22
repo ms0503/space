@@ -33,9 +33,8 @@ class Message {
         if(Message.data.msgs[id] === undefined) {
             console.error('Error: No such localized message');
             process.exit(5);
-            return '';
         }
-        return Message.data.msgs[id];
+        return Message.data.msgs[id]!;
     }
 
     static init(lang: string): number {

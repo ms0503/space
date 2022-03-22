@@ -31,7 +31,7 @@ const ENV_LANG: string = process.env['LANG'] !== undefined && process.env['LANG'
 const VERSION: string = process.env['npm_package_version'] || require('../package.json').version;
 
 class Main {
-    main(): number {
+    static main(): number {
         if(os.type().toString() === 'Windows') {
             console.error('Error: Windows is not supported');
             return 2;
