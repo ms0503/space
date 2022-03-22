@@ -27,27 +27,28 @@ type langFile = {
 };
 
 export default class Msg {
-    static data: any;
+    static data: langFile;
 
     static getMessage(id: string): string {
         if(Msg.data.msgs[id] === undefined) {
             console.error('Error: No such localized message');
-            process.exit(4);
+            process.exit(5);
         }
         return Msg.data.msgs[id];
     }
 
-    static init(lang: string): void {
+    static init(lang: string): number {
         const currDir = __dirname;
         if(!fs.existsSync(`${currDir}/../lang/${lang}.lang`)) {
             console.error('Error: No such lang file');
-            process.exit(2);
+            return 6;
         }
         let langFile = fs.readFileSync(`${currDir}/../lang/${lang}.lang`);
         Msg.data = JSON.parse(langFile);
         if(!('msgs' in Msg.data)) {
             console.error('Error: Invalid lang file');
-            process.exit(3);
+            return 7;
         }
     }
 }
+

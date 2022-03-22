@@ -5,3 +5,7 @@ Error Number List
 2 - Windows is not supported.
 3 - Invalid option.
 4 - Invalid command.
+5 - No such localized message.
+6 - No such lang file.
+7 - Invalid lang file.
+
