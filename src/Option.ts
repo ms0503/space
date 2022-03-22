@@ -32,5 +32,6 @@ class Option {
     }
 }
 
-export { Option, Options };
+export { Option };
+export type { Options };
 

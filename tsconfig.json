@@ -13,9 +13,10 @@
         "forceConsistentCasingInFileNames": true,
         "importHelpers": true,
         "incremental": true,
-        "inlineSources": true,
         "isolatedModules": true,
-        "lib": [],
+        "lib": [
+            "esnext"
+        ],
         "module": "esnext",
         "moduleResolution": "node",
         "noImplicitReturns": true,
@@ -24,7 +25,6 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "dist/bin",
-        "preserveSymlinks": true,
         "removeComments": true,
         "rootDir": "src",
         "skipLibCheck": true,

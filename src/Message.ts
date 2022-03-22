@@ -30,12 +30,12 @@ class Message {
     static data: langFile;
 
     static getMessage(id: string): string {
-        if(Msg.data.msgs[id] === undefined) {
+        if(Message.data.msgs[id] === undefined) {
             console.error('Error: No such localized message');
             process.exit(5);
             return '';
         }
-        return Msg.data.msgs[id];
+        return Message.data.msgs[id];
     }
 
     static init(lang: string): number {
@@ -45,11 +45,12 @@ class Message {
             return 6;
         }
         let langFile = fs.readFileSync(`${currDir}/../lang/${lang}.lang`);
-        Msg.data = JSON.parse(langFile);
-        if(!('msgs' in Msg.data)) {
+        Message.data = JSON.parse(langFile);
+        if(!('msgs' in Message.data)) {
             console.error('Error: Invalid lang file');
             return 7;
         }
+        return 0;
     }
 }
 
