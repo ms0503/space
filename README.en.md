@@ -12,6 +12,13 @@ Space is the package manager for Linux.
 - Linux distribution
 - Node.js
 
+## Install
+Clone this repository, and run below.
+```
+# cd space
+# ./install.sh
+```
+
 ## Usage
 `# tpm <sub-command> [options...]`
 

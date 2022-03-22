@@ -12,6 +12,13 @@ SpaceはLinux向けのパッケージマネージャです。
 - Linuxディストリビューション
 - Node.js
 
+## インストール
+リポジトリをクローンし、以下を実行する。
+```
+# cd space
+# ./install.sh
+```
+
 ## 使い方
 `# tpm <sub-command> [options...]`
 
