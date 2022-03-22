@@ -33,7 +33,7 @@
     "scripts": {
         "build": "npm-run-all clean tsc build:after",
         "build:after": "bash after_build.sh",
-        "clean": "rimraf dist/bin/*",
+        "clean": "rimraf dist/*",
         "dev": "ts-node src/Main.ts",
         "dev:watch": "ts-node-dev --respawn src/Main.ts",
         "start": "dist/bin/space",

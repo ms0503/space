@@ -28,7 +28,8 @@ type Options = {
 class Option {
     static init(): Options {
         return {
-            y: false
+            test: false,
+            yes: false
         };
     }
 }
