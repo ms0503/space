@@ -9,7 +9,7 @@ if [ -z "$(command -v node)" ]; then
     exit 1
 fi
 cd $(dirname $0)
-node ./space.js
+NODE_ENV=production node ./space.js
 exit $?
 
 EOS

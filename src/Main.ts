@@ -20,12 +20,11 @@
 
 'use strict';
 
+import { bindHelp, create, parseSystem, setHelp, showHelp } from 'node-getopt';
+import os from 'os';
 import { Message } from './Message';
 import { Option } from './Option';
 import type { Options } from './Option';
-
-const Getopt: any = require('node-getopt');
-const os: any = require('os');
 
 const ENV_LANG: string = process.env['LANG'] !== undefined && process.env['LANG'] !== 'C' ? process.env['LANG'] : 'en_US';
 const VERSION: string = process.env['npm_package_version'] || require('../package.json').version;
@@ -45,7 +44,7 @@ class Main {
             `  upgrade  ${Message.getMessage('cmd.upgrade')}`,
             `  version  ${Message.getMessage('cmd.version')}`
         ];
-        const getopt: any = Getopt.create([
+        const getopt: any = create([
             ['y', 'yes', Message.getMessage('opt.yes')]
         ]).bindHelp().setHelp(Message.getMessage('usage').replace(/\$\$COMMANDS\$\$/g, cmds.join('\n'))).parseSystem();
         let opts: Options = Option.init();

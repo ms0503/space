@@ -20,7 +20,7 @@
 
 'use strict';
 
-const fs: any = require('fs');
+import { existsSync, readFileSync } from 'fs';
 
 type langFile = {
     msgs: {[key: string]: string}
@@ -39,11 +39,11 @@ class Message {
 
     static init(lang: string): number {
         const currDir = __dirname;
-        if(!fs.existsSync(`${currDir}/../lang/${lang}.lang`)) {
+        if(!existsSync(`${currDir}/../lang/${lang}.lang`)) {
             console.error('Error: No such lang file');
             return 6;
         }
-        let langFile = fs.readFileSync(`${currDir}/../lang/${lang}.lang`);
+        let langFile = readFileSync(`${currDir}/../lang/${lang}.lang`);
         Message.data = JSON.parse(langFile);
         if(!('msgs' in Message.data)) {
             console.error('Error: Invalid lang file');
